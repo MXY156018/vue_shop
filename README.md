@@ -1,4 +1,4 @@
-# vue_shop1
+# vue_shop
 
 ## Project setup
 ```
