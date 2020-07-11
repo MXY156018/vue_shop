@@ -26,7 +26,7 @@
 
 <script>
   export default {
-    name: 'rights',
+    name: 'Rights',
     data() {
       return {
         rightsList: []
