@@ -30,6 +30,9 @@ import {
   Select,
   Option,
   Cascader,
+  Alert,
+  Tabs,
+  TabPane,
 } from 'element-ui'
 
 Vue.use(Button)
@@ -63,4 +66,6 @@ Vue.use(Tree)
 Vue.use(Select)
 Vue.use(Option)
 Vue.use(Cascader)
-
+Vue.use(Alert)
+Vue.use(Tabs)
+Vue.use(TabPane)

@@ -8,6 +8,7 @@ import Users from 'views/user/users'
 import Roles from 'views/right/roles'
 import Rights from 'views/right/Rights'
 import Cate from 'views/goods/Cate'
+import Params from 'views/goods/Params'
 
 const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
@@ -48,6 +49,10 @@ const routes = [
             {
                 path: '/categories',
                 component: Cate
+            },
+            {
+                path: '/params',
+                component: Params
             }
         ]
     },
