@@ -49,7 +49,8 @@
                 <el-tag v-for="(item,index) in scope.row.attr_vals"
                         :key="index" closable
                         @close="handleClose(index,scope.row)"
-                >{{item}}</el-tag>
+                >{{item}}
+                </el-tag>
                 <!--input输入框-->
                 <el-input
                         class="input-new-tag"
@@ -80,6 +81,8 @@
               </template>
             </el-table-column>
           </el-table>
+          <!--分页区域-->
+          
         </el-tab-pane>
         <!--添加静态属性的面板-->
         <el-tab-pane label="静态属性" name="only">
@@ -95,7 +98,8 @@
                 <el-tag v-for="(item,index) in scope.row.attr_vals"
                         :key="index" closable
                         @close="handleClose(index,scope.row)"
-                >{{item}}</el-tag>
+                >{{item}}
+                </el-tag>
                 <!--input输入框-->
                 <el-input
                         class="input-new-tag"
@@ -105,12 +109,12 @@
                         size="small"
                         @keyup.enter.native="handleInputConfirm(scope.row)"
                         @blur="handleInputConfirm(scope.row)"
-      
+                
                 >
                 </el-input>
                 <el-button v-else class="button-new-tag" size="small" @click="showInput(scope.row)">+ New Tag
                 </el-button>
-    
+              
               </template>
             </el-table-column>
             <el-table-column type="index"></el-table-column>
@@ -224,7 +228,7 @@
         if (this.selectedCateKeys.length !== 3) {
           this.selectedCateKeys = []
           this.manyTableData = []
-          this.onlyTableData =[]
+          this.onlyTableData = []
           return
         }
         //根据所选分类的ID  和当前所处的面板  获取参数列表
@@ -330,7 +334,7 @@
         
       },
       //将对attr_vals 的操作保存到数据库
-      async saveAttrVals(row){
+      async saveAttrVals(row) {
         //发起请求保存本次操作
         const { data: res } = await this.$http.put(`categories/${this.cateId}/attributes/${row.attr_id}`,
           {
@@ -338,7 +342,7 @@
             attr_sel: row.attr_sel,
             attr_vals: row.attr_vals.join(' ')
           })
-        if(res.meta.status!==200) return this.$message.error('修改参数项失败')
+        if (res.meta.status !== 200) return this.$message.error('修改参数项失败')
         this.$message.success('修改参数项成功')
       },
       //展示文本输入框
@@ -350,8 +354,8 @@
         })
       },
       //删除对应的参数可选项
-      handleClose(index,row){
-        row.attr_vals.splice(index,1)
+      handleClose(index, row) {
+        row.attr_vals.splice(index, 1)
         this.saveAttrVals(row)
       }
     },
