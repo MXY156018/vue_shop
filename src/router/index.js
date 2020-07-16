@@ -12,6 +12,7 @@ import Params from 'views/goods/Params'
 import GoodsList from 'views/goods/GoodsList'
 import Add from 'views/goods/Add'
 import Order from 'views/order/Order'
+import Report from 'views/report/Report'
 
 const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
@@ -69,7 +70,10 @@ const routes = [
                 path: '/orders',
                 component: Order
             },
-          
+            {
+                path: '/reports',
+                component: Report
+            },
           
         ]
     },
